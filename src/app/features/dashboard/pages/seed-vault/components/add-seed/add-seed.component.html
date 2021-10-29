@@ -1,0 +1,17 @@
+<sl-modal (onClose)="closeModal()">
+    <h1 title>Add seed key</h1>
+    <div class="form" [formGroup]="newSeedForm" content>
+        <div class="form-row seed-meta">
+            <input class="form-input" type="text" formControlName="wallet_name" placeholder="Wallet name">
+            <input class="form-input" type="text" formControlName="platform_link" placeholder="Platform website url">
+        </div>
+        <div class="form-row">
+            <textarea class="form-textarea" [class.hasContent]="newSeedForm.get('phrase').value.length > 0" formControlName="phrase" cols="30" rows="10"></textarea>
+        </div>
+        <div class="footer">
+            <sl-button isType="cancel" isClass="alt" (click)="closeModal()">Cancel</sl-button>
+            <sl-button (click)="onSubmit()">Add</sl-button>
+        </div>
+    </div>
+
+</sl-modal>

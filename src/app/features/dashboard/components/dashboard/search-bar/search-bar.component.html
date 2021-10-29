@@ -1,0 +1,25 @@
+<div class="search-wrapper shadow" [class.hasResults]="(searchResults$ | async)">
+    <div [formGroup]="searchForm" class="searchbar-container ">
+        <div class="icon-container">
+            <sl-icon type="search-icon"></sl-icon>
+        </div>
+        <input type="text" placeholder="Search seeds..." [formControlName]="'query'">
+    </div>
+    <!-- <div class="results-container" *ngIf="(searchResults$ | async) as companies">
+        <ul>
+            <ng-template ngFor let-company [ngForOf]="companies" let-i="index">
+                <li (click)="selectCompany(company['1. symbol'])">
+                    <div class="column">
+                        <div class="header">
+                            <span>{{company["2. name"]}}</span>
+                        </div>
+                        <div class="footer">
+                            <span>{{company["1. symbol"]}} - {{company["4. region"]}}</span>
+                            <span>{{company["3. type"]}}</span>
+                        </div>
+                    </div>
+                </li>
+            </ng-template>
+        </ul>
+    </div> -->
+</div>

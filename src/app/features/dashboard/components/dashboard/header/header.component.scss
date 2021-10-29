@@ -1,0 +1,20 @@
+:host {
+    header {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        align-items: center;
+
+        padding: 10px 50px 10px 140px;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: white;
+    }
+
+    .profile-container {
+        text-align: right;
+    }
+}

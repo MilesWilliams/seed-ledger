@@ -1,0 +1,11 @@
+<div class="overlay" [class.show]="show">
+    <div class="modal-wrapper">
+        <div class="title-bar">
+            <sl-icon [type]="'close'" (click)="closeModal()"></sl-icon>
+        </div>
+        <div class="modal-content">
+            <ng-content select="[title]"></ng-content>
+            <ng-content select="[content]"></ng-content>
+        </div>
+    </div>
+</div>

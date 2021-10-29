@@ -1,0 +1,34 @@
+@import "typography";
+@import "colours";
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-size: $font-para-base;
+    font-family: $font-family;
+    color: $color-base;
+}
+
+h1 {
+    font-size: $font-heading-base;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    right: 0;
+
+    li {
+        list-style: none;
+    }
+}

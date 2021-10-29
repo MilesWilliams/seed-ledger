@@ -1,0 +1,8 @@
+<section>
+    <ng-content select="[left-widget]"></ng-content>
+    <div class="main-page">
+        <h1 *ngIf="title">{{title}}</h1>
+        <ng-content select="[content]"></ng-content>
+    </div>
+    <ng-content select="[right-widget]"></ng-content>
+</section>

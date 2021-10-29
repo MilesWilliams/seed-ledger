@@ -1,0 +1,44 @@
+@import "sl-styles";
+
+:host {
+    .form {
+        position: relative;
+        height: 100%;
+        .form-row {
+            margin-bottom: 40px;
+
+            .form-textarea {
+                height: 217px;
+                background: url('../../../../../../../assets/icons/seed-textarea-placeholder.svg') center center no-repeat, $color-grey;
+
+                &.hasContent {
+                    background: $color-grey;
+                }
+            }
+
+            &:nth-last-of-type(2) {
+                margin-bottom: 0;
+            }
+        }
+
+        .seed-meta {
+            .form-input {
+                width: 250px;
+                margin-right: 30px;
+            }
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            bottom: 88px;
+            left: 0;
+            right: 0;
+
+            sl-button {
+                margin-left: 20px;
+            }
+        }
+    }
+}

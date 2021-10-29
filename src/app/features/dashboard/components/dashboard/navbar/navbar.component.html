@@ -1,0 +1,12 @@
+
+<nav>
+    <ul>
+        <ng-template ngFor let-item [ngForOf]="(navItems$ | async)">
+            <li [class.selected]="item.id === (getSelectedNavID$ | async)">
+                <a [routerLink]="item.path">
+                    <sl-icon [type]="item.icon"></sl-icon>
+                </a>
+            </li>
+        </ng-template>
+    </ul>
+</nav>

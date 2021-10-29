@@ -1,0 +1,414 @@
+<sl-page>
+    <sl-list-widget left-widget>
+        <ul class="seed-list" body>
+            <ng-template ngFor let-seed [ngForOf]="(seeds$ | async)">
+                <li (click)="selectSeed(seed.id)">
+                    <i class="logo">
+                        <img [src]="seed.platform.logo" [alt]="seed.platform.name" srcset="">
+                    </i>
+                    <p>{{seed.platform.name}}</p>
+                </li>
+            </ng-template>
+        </ul>
+        <div footer>
+            <sl-button (click)="showAddSeedModal = true">Add</sl-button>
+        </div>
+    </sl-list-widget>
+
+    <div content>
+        <div class="seed-lockup" *ngIf="(selectedSeed$ | async) as selectedSeed">
+            <div class="seed-meta">
+                <div class="left-col col">
+                    <i class="logo">
+                        <img *ngIf="selectedSeed.platform.logo.length >  0 else noLogo"
+                            [src]="selectedSeed.platform.logo" [alt]="selectedSeed.platform.name" srcset="">
+
+                        <ng-template #noLogo>
+                            <div class="no-logo" [class.has-logo]="uploadedFileUrl">
+                                <label *ngIf="!uploadedFileUrl" for="fileUpload"><span>add a logo</span></label>
+                                <input #fileUpload id="fileUpload" accept="image/*" type="file" (change)="onLogoUpload(fileUpload.files)">
+                                <img *ngIf="uploadedFileUrl" [src]="uploadedFileUrl">
+                            </div>
+                        </ng-template>
+                    </i>
+                    <div>
+                        <h1>{{selectedSeed.platform.name}}</h1>
+                        <p class="created-date">created: {{selectedSeed.created_date}}</p>
+                    </div>
+                </div>
+
+                <div class="right-col col">
+                    <a [href]="selectedSeed.platform.link" target="_blank"
+                        class="platform-link">{{selectedSeed.platform.link}}</a>
+                    <div class="actions-lockup">
+                        <sl-icon [type]="'share'"></sl-icon>
+                        <sl-icon (click)="copyToClipboard(selectedSeed.phrase)" [type]="'copy'"></sl-icon>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seed-phrase">
+                <ul>
+                    <ng-template ngFor let-word [ngForOf]="listSeedWords(selectedSeed.phrase)">
+                        <li (click)="copyToClipboard(word)">{{word}}</li>
+                    </ng-template>
+                </ul>
+            </div>
+
+            <sl-page-section>
+                <h2 heading>Logs</h2>
+                <div class="seed-logs" content>
+                    <ul>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="left-col">
+                                <div class="log-date">
+                                    <p>Sun Apr 18 2021 13:40:11 GMT+0200 (South Africa Standard Time)</p>
+                                </div>
+
+                                <div class="user">
+                                    <p>Miles Williams</p>
+                                </div>
+                            </div>
+
+                            <div class="right-col">
+                                <div class="log-action">
+                                    <p>Viewed</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </sl-page-section>
+            <div class="seed-actions">
+                <sl-button isType="cancel" isClass="alt">Delete</sl-button>
+                <sl-button>Edit</sl-button>
+            </div>
+        </div>
+    </div>
+
+</sl-page>
+
+<sl-add-seed *ngIf="showAddSeedModal" (onClose)="showAddSeedModal = false"></sl-add-seed>

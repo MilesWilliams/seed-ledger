@@ -1,0 +1,23 @@
+/*
+-------- Site colours --------
+*/
+// base text colour
+$color-base: #1C1D26;
+// alt text colour
+$color-alt: #606C82;
+// accent colour
+// $color-accent: #007f90;
+$color-accent: #C92954;
+// warn colour
+$color-warn: #ED1545;
+$color-grey: #F5F5F5;
+
+/*
+-------- Commodity colours --------
+*/
+$color-gold: #958459;
+$color-silver: #C0C0C0;
+
+.accent {
+    color: $color-accent;
+}

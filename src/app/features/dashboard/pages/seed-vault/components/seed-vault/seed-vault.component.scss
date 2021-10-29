@@ -1,0 +1,191 @@
+@import "sl-styles";
+
+:host {
+    .seed-list {
+        width: 260px;
+
+        li {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            margin-right: 15px;
+            svg,img {
+                max-width: 25px;
+                height: auto;
+            }
+        }
+    }
+
+    .seed-lockup  {
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        .seed-meta  {
+            display: flex;
+            justify-content: space-between;
+            max-height: 83px;
+
+            .col {
+                display: flex;
+            }
+            .left-col {
+                align-items: center;
+
+                .logo {
+                    img {
+                        max-height: 82px;
+                        width: auto;
+                        margin-right: 25px;
+                    }
+
+                    .no-logo {
+                        height: 82px;
+                        background-color: $color-grey;
+                        margin-right: 25px;
+                        padding: 0 10px;
+                        max-height: 82px;
+                        width: 82px;
+
+                        label {
+                            cursor: pointer;
+                            margin: auto;
+                            height: 100%;
+                            width: 100%;
+                            text-align: center;
+                            display: flex;
+                        }
+
+                        span {
+                            margin: auto;
+                        }
+
+                        #fileUpload {
+                            display: none;
+                        }
+
+                        &.has-logo {
+                            padding: 0;
+                            background-color: transparent;
+                        }
+                    }
+                }
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h1 {
+                        margin: 0;
+                        font-size: 26px;
+                    }
+
+                    p {
+                        color: #434343;
+                        text-decoration: underline;
+                        line-height: 20px;
+                    }
+                }
+
+            }
+
+            .right-col {
+                flex-direction: column;
+                justify-content: space-between;
+
+                .platform-link {
+                    color: $color-accent;
+                }
+                .actions-lockup {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    margin: 16px 0;
+                    sl-icon {
+                        margin-left: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .seed-phrase {
+            background-color: #F5F5F5;
+            padding: 22px;
+            margin: 75px 0;
+            ul {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                text-align: center;
+ 
+                li {
+                    list-style: none;
+                    line-height: 30px;
+                    margin: 0 5px;
+                    font-size: $font-para-large;
+                    cursor: pointer;
+                    border-bottom: 0.5px dotted rgba($color: $color-accent, $alpha: 0);
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                        border-bottom: 0.5px dotted rgba($color: $color-accent, $alpha: 0.4);
+                        transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+
+        .seed-logs {
+
+            ul  {
+                overflow: scroll;
+                width: 100%;
+                height: 100%;
+            }
+            li  {
+                list-style: none;
+                padding: 15px;
+
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba($color: $color-alt, $alpha: 0.2);
+
+                &:last-of-type {
+                    border-bottom: none;
+                }
+                * {
+                    font-size: 14px;
+                }
+
+                .left-col {
+                    display: grid;
+                    grid-template-columns: 70% 25%;
+                    grid-column-gap: 5%;
+                    width: 70%;
+                }
+            }
+        }
+
+        ::ng-deep {
+            sl-page-section {
+                height: 100%;
+                .content {
+                    height: calc(100% - 460px);
+                }
+            }
+        }
+
+        .seed-actions {
+            display: flex;
+            justify-content: flex-end;
+
+            sl-button {
+                margin-left: 25px;
+            }
+        }
+    }
+}

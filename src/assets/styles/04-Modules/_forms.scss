@@ -1,0 +1,20 @@
+@import "../01-Base/colours";
+
+.form-input, .form-textarea {
+    border: none;
+    background-color: $color-grey;
+    line-height: 50px;
+    font-size: $font-para-base;
+    padding: 0 15px;
+
+    &::placeholder  {
+        color: $color-alt;
+        font-size: 14px;
+    }
+}
+
+.form-textarea {
+    line-height: normal;
+    width: 100%;
+    padding: 15px;
+}
